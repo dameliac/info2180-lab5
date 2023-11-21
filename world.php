@@ -13,13 +13,35 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 
 
   $country = $_GET['query'];
-  if ($country == ""){
-    $stmt = $conn->query("SELECT * FROM countries");
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($results as $row):
-      echo "<li>{$row['name']}". "' is ruled by '" . "{$row['head_of_state']}</li>";
-    endforeach; 
+  $cities = $_GET['lookup'];
+
+
+ if($cities=='cities'){
+  
+  $stmt = $conn->prepare("SELECT c.name as Name, c.district as District, c.population as Population FROM cities
+   c join countries cs on c.country_code = cs.code WHERE cs.name LIKE '%$country%'");
+   
+  $stmt->execute();
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  echo '<table class="content-table">';;
+  echo "<thead>";
+    echo "<tr>";
+      echo "<th>NAME</th>";
+      echo "<th>DISTRICT</th>";
+      echo "<th>POPULATION</th>";
+    echo "</tr>";
+  echo "</thead>";
+  echo "<tbody>";
+  foreach ($results as $row){
+    echo "<tr>";
+      echo "<td>".$row['Name']."</td>";
+      echo "<td>".$row['District']."</td>";
+      echo "<td>".$row['Population']."</td>";
+    echo "</tr>";
   }
+  echo "</tbody>";
+echo "</table>";
+ }
   else{
     $stmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%'");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

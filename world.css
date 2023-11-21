@@ -4,26 +4,7 @@
     box-sizing: border-box;
  }
 
-
-img{
-    display: block;
-    width: 150px;
-    height: 150px;
-    align-items: left;
-}
-
-body{
-    height: 100vh;
-    width: 100vw;
-    background-color: #E8F1F2;
-}
-#result{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-header{
+ header{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,20 +15,53 @@ header{
 
 h1{
     font-size: 3rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-family: 'Outfit', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: white;
 
+}
+
+
+img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    align-items: left;
+}
+
+body{
+      background-color: #E8F1F2;
+      display: block;
+}
+#result{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 label{
     display: none;
 }
+
 #controls{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-content: center;
     width: 100%;
+    position: relative;
+}
+
+#search{
+    cursor: pointer;
+    font-size: 0.8rem;
+    border: none;
+    background-color: #247BA0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bolder;
+
 }
  
 #lookup{
@@ -55,45 +69,55 @@ label{
     font-size: 0.8rem;
     border: none;
     background-color: #006494;
-    padding: 5px;
-    border-radius: 5px;
-    width: 200px;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bolder;
-}
-#lookup-c{
-    cursor: pointer;
-    font-size: 0.8rem;
-    border: none;
-    background-color: goldenrod;
-    padding: 5px;
-    border-radius: 5px;
-    width: 200px;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bolder;
-}
-input{
     padding: 10px;
-    margin: 10px 0;
-    width: 45%;
     border-radius: 5px;
-    border: none;
-    height: 30px;
+    width: 200px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bolder;
     
 }
-.button{
-    display: flex;
-    justify-content: space-around;
-    gap: 40px;
 
+input{
+    width: 80%;
+    padding: 17px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 25px;
+    box-shadow: #13293D;
+    margin-top: 40px;
+    margin-left: 110px;
+    align-content: center;
+    
 }
+.lookup{
+    margin: 0;
+  position: absolute;
+  top: 140%;
+  left: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.search{
+        margin: 0;
+      position: absolute;
+      top: 140%;
+      left: 55%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    
+}
+
 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-top: 50px;
+    align-self: center;
   }
   
   td, th {
@@ -107,6 +131,7 @@ table {
   }
 
   th{
+   
     background-color: #1B98E0;
   }
 

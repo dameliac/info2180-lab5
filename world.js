@@ -1,5 +1,6 @@
 window.onload = function Search(){
     let searchbtn = document.getElementById("lookup");
+    let citysearch = document.getElementById("search");
     let httpRequest;
     
 
@@ -15,6 +16,20 @@ window.onload = function Search(){
         httpRequest.send();
 
       
+    });
+
+    citysearch.addEventListener('click', function(){
+         console.log('form submitted');
+        let input = document.getElementById('country');
+        let data = input.value;
+        cities = true;
+        console.log(data);
+        httpRequest = new XMLHttpRequest(); //creating an XMLHttpRequest object.
+        //GET Request
+        httpRequest.onreadystatechange = loadData;
+        httpRequest.open('GET', 'world.php?query='+data + '&lookup=cities', true);
+        httpRequest.send();
+
     });
 
     function loadData() {
